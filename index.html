@@ -39,7 +39,7 @@
             --neon-magenta: #e6007e;
             --deep-violet: #5900ff;
             --bright-magenta: #ff00a0;
-            --bg-center: #1a0033; /* Fondo ligeramente más claro */
+            --bg-center: #1a0033;
             --bg-edge: #0a0014;
             --table-bg: rgba(25, 8, 40, 0.85); 
             --table-hover: rgba(45, 12, 70, 0.95);
@@ -56,7 +56,7 @@
             line-height: 1.6;
         }
 
-        /* --- BACKGROUND VIVO Y SÍMBOLOS SENSUALES --- */
+        /* --- BACKGROUND Y BATTLE OF THE SEXES --- */
         .bg-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -65,7 +65,6 @@
             overflow: hidden;
         }
 
-        /* Luces ambientales estilo club nocturno */
         .ambient-light {
             position: absolute;
             border-radius: 50%;
@@ -82,39 +81,53 @@
             100% { transform: scale(1.3) translate(50px, -50px); opacity: 0.45; }
         }
 
-        /* Símbolos heterosexuales (♂ y ♀) con 5% más de velocidad y mayor cantidad */
+        /* Estilo general de símbolos reducidos */
         .floating-symbol {
             position: absolute;
-            opacity: 0.18; 
-            filter: blur(2px); 
-            animation: floatSensual 38s infinite alternate ease-in-out;
+            opacity: 0.28; 
+            filter: blur(1px); 
             user-select: none;
-            color: var(--neon-purple);
             font-weight: 300;
+            transition: transform 0.2s ease-out;
         }
 
-        .sym-1 { top: 10%; left: 8%; font-size: 7rem; color: var(--deep-violet); animation-duration: 33s; }
-        .sym-2 { bottom: 15%; right: 12%; font-size: 9rem; color: var(--neon-magenta); animation-duration: 40s; animation-delay: -5s; }
-        .sym-3 { top: 40%; left: 70%; font-size: 6rem; color: var(--neon-purple); animation-duration: 45s; animation-delay: -15s; }
-        .sym-4 { bottom: 30%; left: 15%; font-size: 8rem; color: var(--deep-violet); animation-duration: 36s; animation-delay: -10s; }
-        .sym-5 { top: 20%; right: 30%; font-size: 5rem; color: var(--neon-magenta); animation-duration: 28s; animation-delay: -8s; }
-        .sym-6 { top: 60%; left: 35%; font-size: 9rem; color: var(--bright-magenta); opacity: 0.12; animation-duration: 42s; animation-delay: -20s; }
-        .sym-7 { top: 5%; right: 45%; font-size: 6rem; color: var(--neon-purple); animation-duration: 31s; animation-delay: -12s; }
-        .sym-8 { bottom: 8%; left: 45%; font-size: 7.5rem; color: var(--neon-magenta); animation-duration: 37s; animation-delay: -3s; }
-        .sym-9 { top: 75%; right: 22%; font-size: 6.5rem; color: var(--deep-violet); animation-duration: 29s; animation-delay: -18s; }
-        .sym-10 { top: 30%; left: 25%; font-size: 5.5rem; color: var(--neon-purple); animation-duration: 41s; animation-delay: -7s; }
+        /* LADO IZQUIERDO: Símbolos Femeninos (♀) */
+        .sym-left {
+            animation: floatLeftSensual 28s infinite alternate ease-in-out;
+        }
+        .sym-1  { top: 8%;   left: 2%;  font-size: 3.2rem; color: var(--bright-magenta); text-shadow: 0 0 15px var(--bright-magenta); animation-duration: 22s; }
+        .sym-2  { top: 28%;  left: 5%;  font-size: 2.8rem; color: var(--neon-magenta);   text-shadow: 0 0 12px var(--neon-magenta);   animation-duration: 26s; animation-delay: -4s; }
+        .sym-3  { top: 48%;  left: 1%;  font-size: 3.8rem; color: var(--bright-magenta); text-shadow: 0 0 18px var(--bright-magenta); animation-duration: 20s; animation-delay: -8s; }
+        .sym-4  { top: 68%;  left: 4%;  font-size: 3.0rem; color: var(--neon-magenta);   text-shadow: 0 0 14px var(--neon-magenta);   animation-duration: 25s; animation-delay: -12s; }
+        .sym-5  { top: 88%;  left: 2%;  font-size: 3.5rem; color: var(--bright-magenta); text-shadow: 0 0 16px var(--bright-magenta); animation-duration: 23s; animation-delay: -16s; }
 
-        @keyframes floatSensual {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(15px, 25px) scale(1.05) rotate(5deg); }
-            100% { transform: translate(-20px, 40px) scale(1.1) rotate(-10deg); }
+        /* LADO DERECHO: Símbolos Masculinos (♂) */
+        .sym-right {
+            animation: floatRightSensual 28s infinite alternate ease-in-out;
+        }
+        .sym-6  { top: 12%;  right: 3%; font-size: 3.4rem; color: var(--deep-violet);    text-shadow: 0 0 15px var(--deep-violet);    animation-duration: 24s; }
+        .sym-7  { top: 32%;  right: 1%; font-size: 2.6rem; color: var(--neon-purple);    text-shadow: 0 0 12px var(--neon-purple);    animation-duration: 21s; animation-delay: -5s; }
+        .sym-8  { top: 52%;  right: 4%; font-size: 3.6rem; color: var(--deep-violet);    text-shadow: 0 0 18px var(--deep-violet);    animation-duration: 27s; animation-delay: -10s; }
+        .sym-9  { top: 72%;  right: 2%; font-size: 3.0rem; color: var(--neon-purple);    text-shadow: 0 0 14px var(--neon-purple);    animation-duration: 22s; animation-delay: -15s; }
+        .sym-10 { top: 90%;  right: 5%; font-size: 3.2rem; color: var(--deep-violet);    text-shadow: 0 0 15px var(--deep-violet);    animation-duration: 25s; animation-delay: -20s; }
+
+        @keyframes floatLeftSensual {
+            0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+            50%  { transform: translateY(-25px) translateX(12px) rotate(12deg) scale(1.08); }
+            100% { transform: translateY(30px) translateX(-8px) rotate(-8deg) scale(0.95); }
+        }
+
+        @keyframes floatRightSensual {
+            0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+            50%  { transform: translateY(30px) translateX(-12px) rotate(-12deg) scale(1.08); }
+            100% { transform: translateY(-25px) translateX(8px) rotate(8deg) scale(0.95); }
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
         
         section { padding: 40px 0; }
 
-        /* --- BANNER CON BORDE DEGRADADO FUTURISTA --- */
+        /* --- BANNER --- */
         .banner-wrapper {
             width: 100%;
             margin: 20px auto; 
@@ -140,7 +153,7 @@
             object-position: center;
         }
 
-        /* --- REPRODUCTOR CON BORDE DEGRADADO --- */
+        /* --- REPRODUCTOR --- */
         .player-wrapper {
             width: 100%;
             margin-bottom: 40px; 
@@ -175,7 +188,7 @@
             text-shadow: 0 0 15px var(--neon-purple); 
         }
 
-        /* --- LICENSING (CON FONDO DISTINGUIBLE Y BORDES DEGRADADOS) --- */
+        /* --- LICENSING --- */
         .pricing-table { display: flex; flex-direction: column; gap: 15px; }
 
         .price-row {
@@ -193,7 +206,6 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Lineas laterales izquierda con degradado */
         .price-row::before {
             content: "";
             position: absolute;
@@ -204,7 +216,6 @@
         .price-row:nth-child(1)::before { background: linear-gradient(to bottom, #5900ff, #8a2be2); }
         .price-row:nth-child(2)::before { background: linear-gradient(to bottom, #a200ff, #c44dff); }
         .price-row:nth-child(3)::before { background: linear-gradient(to bottom, #e6007e, #ff3399); }
-        /* Licencia Exclusiva ajustada a la paleta magenta/violeta sin azul celeste */
         .price-row:nth-child(4)::before { background: linear-gradient(to bottom, var(--bright-magenta), var(--neon-purple)); }
 
         .price-row:hover {
@@ -228,7 +239,6 @@
         .license-details strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
 
         .price-tag { font-size: 2.6rem; font-weight: 900; text-align: right; color: #fff; text-shadow: 0 0 15px rgba(230, 0, 126, 0.4); }
-        /* Oferta Exclusiva integrada a la paleta magenta */
         .price-tag.offer { font-size: 1.8rem; line-height: 1.2; text-shadow: 0 0 15px rgba(255, 0, 160, 0.6); color: var(--bright-magenta); }
 
         .instant-delivery {
@@ -287,18 +297,17 @@
         .footer-links a { color: #aaa; text-decoration: none; transition: 0.3s; font-weight: 600; }
         .footer-links a:hover { color: var(--neon-magenta); text-shadow: 0 0 10px rgba(230, 0, 126, 0.5); }
 
-        /* ========================================= */
-        /* RESPONSIVE DESIGN                         */
-        /* ========================================= */
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1250px) {
+            .floating-symbol { opacity: 0.15; font-size: 2.2rem !important; }
+        }
         @media (max-width: 900px) {
-            .banner img { height: auto; }
-            
+            .floating-symbol { display: none; }
             .price-row { grid-template-columns: 1fr; text-align: center; gap: 15px; padding: 30px; }
             .price-row::before { width: 100%; height: 5px; left: 0; top: 0; }
             .price-row:hover::before { width: 100%; height: 7px; }
             .price-tag { text-align: center; }
             .license-details { border-left: none; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 10px; }
-            
             .section-title { font-size: 2.2rem; }
             .whatsapp-btn { padding: 18px 30px; font-size: 1rem; width: 100%; max-width: 350px; }
         }
@@ -306,23 +315,25 @@
 </head>
 <body>
 
-    <!-- Luces Ambientales de Fondo -->
+    <!-- Luces Ambientales y Guerra de Sexos en los Bordes -->
     <div class="bg-wrapper">
         <div class="ambient-light light-1"></div>
         <div class="ambient-light light-2"></div>
         <div class="ambient-light light-3"></div>
         
-        <!-- Símbolos Flotantes EXCLUSIVAMENTE Heterosexuales (♀ y ♂) -->
-        <div class="floating-symbol sym-1">♀</div>
-        <div class="floating-symbol sym-2">♂</div>
-        <div class="floating-symbol sym-3">♀</div>
-        <div class="floating-symbol sym-4">♂</div>
-        <div class="floating-symbol sym-5">♀</div>
-        <div class="floating-symbol sym-6">♂</div>
-        <div class="floating-symbol sym-7">♀</div>
-        <div class="floating-symbol sym-8">♂</div>
-        <div class="floating-symbol sym-9">♀</div>
-        <div class="floating-symbol sym-10">♂</div>
+        <!-- Símbolos Femeninos (Lado Izquierdo) -->
+        <div class="floating-symbol sym-left sym-1">♀</div>
+        <div class="floating-symbol sym-left sym-2">♀</div>
+        <div class="floating-symbol sym-left sym-3">♀</div>
+        <div class="floating-symbol sym-left sym-4">♀</div>
+        <div class="floating-symbol sym-left sym-5">♀</div>
+
+        <!-- Símbolos Masculinos (Lado Derecho) -->
+        <div class="floating-symbol sym-right sym-6">♂</div>
+        <div class="floating-symbol sym-right sym-7">♂</div>
+        <div class="floating-symbol sym-right sym-8">♂</div>
+        <div class="floating-symbol sym-right sym-9">♂</div>
+        <div class="floating-symbol sym-right sym-10">♂</div>
     </div>
 
     <div class="container">
@@ -399,6 +410,22 @@
             </div>
         </footer>
     </div>
+
+    <!-- Script para reacción suave al Scroll -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const leftSymbols = document.querySelectorAll('.sym-left');
+            const rightSymbols = document.querySelectorAll('.sym-right');
+            
+            leftSymbols.forEach((sym, i) => {
+                sym.style.transform = `translateY(${scrolled * (0.04 + i * 0.01)}px) rotate(${scrolled * 0.02}deg)`;
+            });
+            rightSymbols.forEach((sym, i) => {
+                sym.style.transform = `translateY(${-scrolled * (0.04 + i * 0.01)}px) rotate(${-scrolled * 0.02}deg)`;
+            });
+        });
+    </script>
     
 </body>
 </html>
