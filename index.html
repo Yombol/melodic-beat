@@ -8,7 +8,7 @@
     <meta name="description" content="Buy professional Melodic Trap & R&B beats. Get full control with WAV + Individual Track Stems for pro mixing. Premium & Unlimited licenses inside.">
     <meta name="keywords" content="Buy Beats, Melodic Trap, R&B Beats, Music Production, Yombol Music, Exclusive Beats, Don Toliver Type Beats">
     <meta name="author" content="Yombol Music">
-    <meta name="theme-color" content="#b026ff">
+    <meta name="theme-color" content="#a200ff">
     
     <link rel="canonical" href="https://Melodic.YombolMusic.com">
     <link rel="icon" href="images/favicon.png" type="image/png">
@@ -34,14 +34,14 @@
     
     <style>
         :root {
-            /* Paleta Melodic R&B / Club Nocturno */
-            --neon-purple: #b026ff;
-            --neon-magenta: #ff007f;
-            --neon-pink: #ff66b2;
-            --sexy-red: #d40000;
+            /* Paleta Futuristic Night (Cero Rosado) */
+            --neon-purple: #a200ff;
+            --neon-magenta: #e6007e;
+            --deep-violet: #5900ff;
             --gold: #d4af37;
-            --dark-purple: #1a0033;
-            --bg-dark: #07000a; /* Negro con un ligero tinte violeta */
+            --bg-dark: #05000a; 
+            --table-bg: rgba(30, 10, 45, 0.88); /* Fondo contrastante para licencias */
+            --table-hover: rgba(50, 15, 75, 0.95);
             --text-light: #ffffff;
         }
 
@@ -55,49 +55,56 @@
             line-height: 1.6;
         }
 
-        /* --- BACKGROUND SENSUAL LENTO --- */
+        /* --- BACKGROUND SÍMBOLOS SENSUALES (VISIBLES) --- */
         .bg-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #0e0018 0%, #030005 100%);
+            background: radial-gradient(circle at 50% 50%, #0d001a 0%, #020005 100%);
             overflow: hidden;
         }
 
         .floating-symbol {
             position: absolute;
-            font-size: 30rem; /* Tamaño gigante */
-            opacity: 0.03; /* Muy sutil, efecto humo/luz */
-            filter: blur(15px); /* Desenfoque pesado para integrar con el fondo */
-            animation: floatSensual 40s infinite alternate ease-in-out;
+            font-size: 18rem; 
+            opacity: 0.12; /* Ahora sí son visibles */
+            filter: blur(5px); /* Desenfoque ligero para mantener la forma */
+            animation: floatSensual 35s infinite alternate ease-in-out;
             user-select: none;
-            color: var(--neon-magenta);
+            color: var(--neon-purple);
         }
 
-        .sym-1 { top: -10%; left: -5%; color: var(--neon-purple); animation-duration: 35s; }
-        .sym-2 { bottom: -5%; right: -10%; font-size: 35rem; color: var(--neon-pink); animation-duration: 45s; animation-delay: -10s; }
-        .sym-3 { top: 30%; left: 40%; font-size: 20rem; color: var(--sexy-red); animation-duration: 50s; animation-delay: -20s; }
-        .sym-4 { bottom: 20%; left: 10%; font-size: 25rem; color: var(--neon-purple); animation-duration: 38s; animation-delay: -5s; }
+        .sym-1 { top: 5%; left: 5%; color: var(--deep-violet); animation-duration: 30s; }
+        .sym-2 { bottom: 10%; right: 5%; font-size: 24rem; color: var(--neon-magenta); animation-duration: 40s; animation-delay: -5s; }
+        .sym-3 { top: 35%; left: 60%; font-size: 16rem; color: var(--neon-purple); animation-duration: 45s; animation-delay: -15s; }
+        .sym-4 { bottom: 25%; left: 10%; font-size: 20rem; color: var(--deep-violet); animation-duration: 35s; animation-delay: -10s; }
+        .sym-5 { top: 15%; right: 25%; font-size: 12rem; color: var(--neon-magenta); animation-duration: 28s; animation-delay: -8s; }
 
         @keyframes floatSensual {
             0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            100% { transform: translate(10%, 10%) scale(1.15) rotate(15deg); }
+            100% { transform: translate(12%, 12%) scale(1.15) rotate(15deg); }
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
         
         section { padding: 40px 0; }
 
-        /* --- BANNER --- */
-        .banner {
+        /* --- BANNER CON BORDE DEGRADADO FUTURISTA --- */
+        .banner-wrapper {
             width: 100%;
             margin: 20px auto; 
+            border-radius: 12px;
+            padding: 4px; /* Crea el grosor del borde */
+            background: linear-gradient(45deg, var(--deep-violet), var(--neon-magenta), var(--neon-purple));
+            box-shadow: 0 0 50px rgba(162, 0, 255, 0.4);
+            animation: gradientShift 8s infinite alternate;
+        }
+
+        .banner {
             border-radius: 8px;
             overflow: hidden;
-            border: 3px solid var(--neon-purple);
-            box-shadow: 0 0 60px rgba(176, 38, 255, 0.5), inset 0 0 25px rgba(255, 0, 127, 0.3);
             line-height: 0;
-            position: relative;
+            background: #000;
         }
 
         .banner img { 
@@ -108,19 +115,29 @@
             object-position: center;
         }
 
-        /* --- REPRODUCTOR --- */
-        .player-container {
+        /* --- REPRODUCTOR CON BORDE DEGRADADO --- */
+        .player-wrapper {
             width: 100%;
+            margin-bottom: 40px; 
+            border-radius: 12px;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--deep-violet), var(--neon-magenta));
+            box-shadow: 0 0 60px rgba(230, 0, 126, 0.3);
+        }
+
+        .player-container {
             background: #000;
             border-radius: 8px;
-            border: 3px solid var(--neon-magenta);
             overflow: hidden;
-            box-shadow: 0 0 70px rgba(255, 0, 127, 0.4);
-            margin-bottom: 40px; 
             line-height: 0;
         }
 
-        .player-container iframe { display: block; border: none; }
+        .player-container iframe { display: block; border: none; width: 100%; height: 800px; }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
 
         .section-title {
             text-align: center; 
@@ -130,53 +147,65 @@
             text-transform: uppercase; 
             letter-spacing: 4px; 
             color: #fff;
-            text-shadow: 0 0 15px var(--neon-magenta); 
+            text-shadow: 0 0 15px var(--neon-purple); 
         }
 
-        /* --- LICENSING (ESTILO YOMBOL MUSIC CON COLORES MELODIC) --- */
+        /* --- LICENSING (CON FONDO DISTINGUIBLE Y BORDES DEGRADADOS) --- */
         .pricing-table { display: flex; flex-direction: column; gap: 15px; }
 
         .price-row {
-            background: rgba(12, 0, 20, 0.85); 
-            border-left: 5px solid;
+            background: var(--table-bg); 
             padding: 30px 40px; 
             display: grid; 
             grid-template-columns: 1fr 2fr 1fr;
             align-items: center; 
             transition: 0.4s; 
-            border-radius: 4px;
-            backdrop-filter: blur(15px);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        .price-row:nth-child(1) { border-left-color: var(--neon-pink); }
-        .price-row:nth-child(2) { border-left-color: var(--neon-magenta); }
-        .price-row:nth-child(3) { border-left-color: var(--neon-purple); }
-        .price-row:nth-child(4) { border-left-color: var(--gold); }
+        /* Lineas laterales izquierda con degradado */
+        .price-row::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 0; width: 6px; height: 100%;
+            transition: 0.4s;
+        }
+
+        .price-row:nth-child(1)::before { background: linear-gradient(to bottom, #5900ff, #8a2be2); }
+        .price-row:nth-child(2)::before { background: linear-gradient(to bottom, #a200ff, #c44dff); }
+        .price-row:nth-child(3)::before { background: linear-gradient(to bottom, #e6007e, #ff3399); }
+        .price-row:nth-child(4)::before { background: linear-gradient(to bottom, #d4af37, #ffe066); }
 
         .price-row:hover {
             transform: translateX(10px);
-            background: rgba(26, 0, 51, 0.95);
-            box-shadow: 0 0 40px rgba(176, 38, 255, 0.3);
+            background: var(--table-hover);
+            box-shadow: 0 0 35px rgba(162, 0, 255, 0.3);
         }
 
-        .license-name { font-size: 1.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--neon-pink); }
-        .price-row:nth-child(2) .license-name { color: var(--neon-magenta); }
-        .price-row:nth-child(3) .license-name { color: var(--neon-purple); }
+        .price-row:hover::before { width: 8px; }
+
+        .license-name { font-size: 1.6rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: #b366ff; }
+        .price-row:nth-child(1) .license-name { color: #9966ff; }
+        .price-row:nth-child(2) .license-name { color: #d580ff; }
+        .price-row:nth-child(3) .license-name { color: #ff66b2; }
         .price-row:nth-child(4) .license-name { color: var(--gold); }
 
-        .license-name span { color: #e6ccff; font-size: 0.9rem; display: block; font-weight: 600; margin-top: 5px; opacity: 0.8; }
+        .license-name span { color: #d9b3ff; font-size: 0.9rem; display: block; font-weight: 600; margin-top: 5px; opacity: 0.8; }
 
-        .license-details { color: #ddd; font-size: 0.95rem; padding: 0 30px; border-left: 1px solid rgba(255,255,255,0.1); }
+        .license-details { color: #e6e6e6; font-size: 0.95rem; padding: 0 30px; border-left: 1px solid rgba(255,255,255,0.1); }
         .license-details strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .price-tag { font-size: 2.6rem; font-weight: 900; text-align: right; color: #fff; text-shadow: 0 0 15px rgba(255, 0, 127, 0.5); }
+        .price-tag { font-size: 2.6rem; font-weight: 900; text-align: right; color: #fff; text-shadow: 0 0 15px rgba(230, 0, 126, 0.5); }
         .price-tag.offer { font-size: 1.8rem; line-height: 1.2; text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); color: var(--gold); }
 
         .instant-delivery {
-            text-align: center; margin-top: 30px; color: var(--neon-magenta);
+            text-align: center; margin-top: 30px; color: var(--neon-purple);
             letter-spacing: 4px; font-size: 0.85rem; text-transform: uppercase; font-weight: 800;
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+            text-shadow: 0 0 10px rgba(162, 0, 255, 0.5);
         }
 
         /* --- CONTACT SECTION --- */
@@ -193,7 +222,7 @@
             justify-content: center;
             text-decoration: none !important;
         }
-        .social-icons a:hover { color: var(--neon-magenta); transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.7)); }
+        .social-icons a:hover { color: var(--neon-magenta); transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(230, 0, 126, 0.7)); }
         
         .beatstars-b { 
             font-family: 'Arial Black', Impact, sans-serif; 
@@ -205,29 +234,29 @@
         .whatsapp-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             padding: 20px 50px;
-            background: linear-gradient(90deg, var(--dark-purple), var(--neon-magenta));
+            background: linear-gradient(90deg, var(--deep-violet), var(--neon-magenta));
             color: #fff; text-decoration: none !important;
             font-weight: 800; font-size: 1.1rem; text-transform: uppercase; 
             border-radius: 12px; 
             transition: 0.3s;
             letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(176, 38, 255, 0.4);
-            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 20px rgba(162, 0, 255, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .whatsapp-btn i { font-size: 1.8rem; }
         .whatsapp-btn:hover { 
             transform: scale(1.05); 
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.7); 
+            box-shadow: 0 0 40px rgba(230, 0, 126, 0.6); 
             color: #fff;
         }
 
         /* --- FOOTER --- */
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid rgba(176,38,255,0.15); font-size: 0.8rem; color: #888; margin-top: 20px; }
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid rgba(162, 0, 255, 0.2); font-size: 0.8rem; color: #888; margin-top: 20px; }
         footer p { margin-bottom: 15px; }
         .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .footer-links a { color: #aaa; text-decoration: none; transition: 0.3s; font-weight: 600; }
-        .footer-links a:hover { color: var(--neon-pink); text-shadow: 0 0 10px rgba(255, 102, 178, 0.5); }
+        .footer-links a:hover { color: var(--neon-purple); text-shadow: 0 0 10px rgba(162, 0, 255, 0.5); }
 
         /* ========================================= */
         /* RESPONSIVE DESIGN                         */
@@ -235,11 +264,9 @@
         @media (max-width: 900px) {
             .banner img { height: auto; }
             
-            .price-row { grid-template-columns: 1fr; text-align: center; gap: 15px; padding: 30px; border-left: none; border-top: 5px solid; }
-            .price-row:nth-child(1) { border-top-color: var(--neon-pink); }
-            .price-row:nth-child(2) { border-top-color: var(--neon-magenta); }
-            .price-row:nth-child(3) { border-top-color: var(--neon-purple); }
-            .price-row:nth-child(4) { border-top-color: var(--gold); }
+            .price-row { grid-template-columns: 1fr; text-align: center; gap: 15px; padding: 30px; }
+            .price-row::before { width: 100%; height: 5px; left: 0; top: 0; }
+            .price-row:hover::before { width: 100%; height: 7px; }
             .price-tag { text-align: center; }
             .license-details { border-left: none; padding: 10px 0; }
             
@@ -256,18 +283,23 @@
         <div class="floating-symbol sym-2">♂</div>
         <div class="floating-symbol sym-3">⚥</div>
         <div class="floating-symbol sym-4">♀</div>
+        <div class="floating-symbol sym-5">♂</div>
     </div>
 
     <div class="container">
         
-        <!-- Top Banner -->
-        <header class="banner">
-            <img src="images/Banner-(Melodic).jpg" alt="Yombol Music Melodic Beats Banner">
-        </header>
+        <!-- Top Banner with Gradient Wrapper -->
+        <div class="banner-wrapper">
+            <header class="banner">
+                <img src="images/Banner-(Melodic).jpg" alt="Yombol Music Melodic Beats Banner">
+            </header>
+        </div>
 
-        <!-- Beatstars Player -->
-        <div class="player-container">
-            <iframe src="https://player.beatstars.com/?storeId=152618" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+        <!-- Beatstars Player with Gradient Wrapper -->
+        <div class="player-wrapper">
+            <div class="player-container">
+                <iframe src="https://player.beatstars.com/?storeId=152618" scrolling="no"></iframe>
+            </div>
         </div>
 
         <!-- Licensing Section -->
