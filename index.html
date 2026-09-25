@@ -34,14 +34,15 @@
     
     <style>
         :root {
-            /* Paleta Futuristic Night (Cero Rosado) */
+            /* Paleta Futuristic Night & Sensual */
             --neon-purple: #a200ff;
             --neon-magenta: #e6007e;
             --deep-violet: #5900ff;
-            --gold: #d4af37;
-            --bg-dark: #05000a; 
-            --table-bg: rgba(30, 10, 45, 0.88); /* Fondo contrastante para licencias */
-            --table-hover: rgba(50, 15, 75, 0.95);
+            --neon-cyan: #00f3ff; /* Reemplazo del dorado/naranja */
+            --bg-center: #1a0033; /* Fondo ligeramente más claro */
+            --bg-edge: #0a0014;
+            --table-bg: rgba(25, 8, 40, 0.85); 
+            --table-hover: rgba(45, 12, 70, 0.95);
             --text-light: #ffffff;
         }
 
@@ -49,40 +50,61 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-edge);
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* --- BACKGROUND SÍMBOLOS SENSUALES (VISIBLES) --- */
+        /* --- BACKGROUND VIVO Y SÍMBOLOS SENSUALES --- */
         .bg-wrapper {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #0d001a 0%, #020005 100%);
+            background: radial-gradient(circle at 50% 50%, var(--bg-center) 0%, var(--bg-edge) 100%);
             overflow: hidden;
         }
 
-        .floating-symbol {
+        /* Luces ambientales estilo club nocturno */
+        .ambient-light {
             position: absolute;
-            font-size: 18rem; 
-            opacity: 0.12; /* Ahora sí son visibles */
-            filter: blur(5px); /* Desenfoque ligero para mantener la forma */
-            animation: floatSensual 35s infinite alternate ease-in-out;
-            user-select: none;
-            color: var(--neon-purple);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: pulseLight 20s infinite alternate ease-in-out;
+        }
+        .light-1 { width: 400px; height: 400px; background: var(--neon-purple); top: -10%; left: -5%; }
+        .light-2 { width: 500px; height: 500px; background: var(--neon-magenta); bottom: -15%; right: -10%; animation-delay: -5s; }
+        .light-3 { width: 300px; height: 300px; background: var(--deep-violet); top: 40%; left: 40%; animation-delay: -10s; }
+
+        @keyframes pulseLight {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+            100% { transform: scale(1.3) translate(50px, -50px); opacity: 0.45; }
         }
 
-        .sym-1 { top: 5%; left: 5%; color: var(--deep-violet); animation-duration: 30s; }
-        .sym-2 { bottom: 10%; right: 5%; font-size: 24rem; color: var(--neon-magenta); animation-duration: 40s; animation-delay: -5s; }
-        .sym-3 { top: 35%; left: 60%; font-size: 16rem; color: var(--neon-purple); animation-duration: 45s; animation-delay: -15s; }
-        .sym-4 { bottom: 25%; left: 10%; font-size: 20rem; color: var(--deep-violet); animation-duration: 35s; animation-delay: -10s; }
-        .sym-5 { top: 15%; right: 25%; font-size: 12rem; color: var(--neon-magenta); animation-duration: 28s; animation-delay: -8s; }
+        /* Símbolos más pequeños y abundantes */
+        .floating-symbol {
+            position: absolute;
+            opacity: 0.18; 
+            filter: blur(2px); 
+            animation: floatSensual 40s infinite alternate ease-in-out;
+            user-select: none;
+            color: var(--neon-purple);
+            font-weight: 300;
+        }
+
+        .sym-1 { top: 10%; left: 8%; font-size: 7rem; color: var(--deep-violet); animation-duration: 35s; }
+        .sym-2 { bottom: 15%; right: 12%; font-size: 9rem; color: var(--neon-magenta); animation-duration: 42s; animation-delay: -5s; }
+        .sym-3 { top: 40%; left: 70%; font-size: 6rem; color: var(--neon-purple); animation-duration: 48s; animation-delay: -15s; }
+        .sym-4 { bottom: 30%; left: 15%; font-size: 8rem; color: var(--deep-violet); animation-duration: 38s; animation-delay: -10s; }
+        .sym-5 { top: 20%; right: 30%; font-size: 5rem; color: var(--neon-magenta); animation-duration: 30s; animation-delay: -8s; }
+        .sym-6 { top: 60%; left: 35%; font-size: 10rem; color: var(--neon-cyan); opacity: 0.08; animation-duration: 45s; animation-delay: -20s; }
+        .sym-7 { top: 5%; right: 45%; font-size: 6rem; color: var(--neon-purple); animation-duration: 33s; animation-delay: -12s; }
 
         @keyframes floatSensual {
             0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            100% { transform: translate(12%, 12%) scale(1.15) rotate(15deg); }
+            50% { transform: translate(15px, 25px) scale(1.05) rotate(5deg); }
+            100% { transform: translate(-20px, 40px) scale(1.1) rotate(-10deg); }
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; position: relative; z-index: 1; }
@@ -94,7 +116,7 @@
             width: 100%;
             margin: 20px auto; 
             border-radius: 12px;
-            padding: 4px; /* Crea el grosor del borde */
+            padding: 4px;
             background: linear-gradient(45deg, var(--deep-violet), var(--neon-magenta), var(--neon-purple));
             box-shadow: 0 0 50px rgba(162, 0, 255, 0.4);
             animation: gradientShift 8s infinite alternate;
@@ -161,10 +183,11 @@
             align-items: center; 
             transition: 0.4s; 
             border-radius: 8px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         /* Lineas laterales izquierda con degradado */
@@ -178,12 +201,14 @@
         .price-row:nth-child(1)::before { background: linear-gradient(to bottom, #5900ff, #8a2be2); }
         .price-row:nth-child(2)::before { background: linear-gradient(to bottom, #a200ff, #c44dff); }
         .price-row:nth-child(3)::before { background: linear-gradient(to bottom, #e6007e, #ff3399); }
-        .price-row:nth-child(4)::before { background: linear-gradient(to bottom, #d4af37, #ffe066); }
+        /* Nueva licencia Exclusiva en Cyan Neón */
+        .price-row:nth-child(4)::before { background: linear-gradient(to bottom, var(--neon-cyan), #0077ff); }
 
         .price-row:hover {
             transform: translateX(10px);
             background: var(--table-hover);
-            box-shadow: 0 0 35px rgba(162, 0, 255, 0.3);
+            box-shadow: 0 0 35px rgba(162, 0, 255, 0.25);
+            border-color: rgba(255,255,255,0.1);
         }
 
         .price-row:hover::before { width: 8px; }
@@ -192,15 +217,16 @@
         .price-row:nth-child(1) .license-name { color: #9966ff; }
         .price-row:nth-child(2) .license-name { color: #d580ff; }
         .price-row:nth-child(3) .license-name { color: #ff66b2; }
-        .price-row:nth-child(4) .license-name { color: var(--gold); }
+        .price-row:nth-child(4) .license-name { color: var(--neon-cyan); }
 
         .license-name span { color: #d9b3ff; font-size: 0.9rem; display: block; font-weight: 600; margin-top: 5px; opacity: 0.8; }
 
         .license-details { color: #e6e6e6; font-size: 0.95rem; padding: 0 30px; border-left: 1px solid rgba(255,255,255,0.1); }
         .license-details strong { color: #fff; display: block; margin-bottom: 5px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .price-tag { font-size: 2.6rem; font-weight: 900; text-align: right; color: #fff; text-shadow: 0 0 15px rgba(230, 0, 126, 0.5); }
-        .price-tag.offer { font-size: 1.8rem; line-height: 1.2; text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); color: var(--gold); }
+        .price-tag { font-size: 2.6rem; font-weight: 900; text-align: right; color: #fff; text-shadow: 0 0 15px rgba(230, 0, 126, 0.4); }
+        /* Oferta Exclusiva brillando en Cyan */
+        .price-tag.offer { font-size: 1.8rem; line-height: 1.2; text-shadow: 0 0 15px rgba(0, 243, 255, 0.6); color: var(--neon-cyan); }
 
         .instant-delivery {
             text-align: center; margin-top: 30px; color: var(--neon-purple);
@@ -222,7 +248,7 @@
             justify-content: center;
             text-decoration: none !important;
         }
-        .social-icons a:hover { color: var(--neon-magenta); transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(230, 0, 126, 0.7)); }
+        .social-icons a:hover { color: var(--neon-cyan); transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.7)); }
         
         .beatstars-b { 
             font-family: 'Arial Black', Impact, sans-serif; 
@@ -256,7 +282,7 @@
         footer p { margin-bottom: 15px; }
         .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .footer-links a { color: #aaa; text-decoration: none; transition: 0.3s; font-weight: 600; }
-        .footer-links a:hover { color: var(--neon-purple); text-shadow: 0 0 10px rgba(162, 0, 255, 0.5); }
+        .footer-links a:hover { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
 
         /* ========================================= */
         /* RESPONSIVE DESIGN                         */
@@ -268,7 +294,7 @@
             .price-row::before { width: 100%; height: 5px; left: 0; top: 0; }
             .price-row:hover::before { width: 100%; height: 7px; }
             .price-tag { text-align: center; }
-            .license-details { border-left: none; padding: 10px 0; }
+            .license-details { border-left: none; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 10px; }
             
             .section-title { font-size: 2.2rem; }
             .whatsapp-btn { padding: 18px 30px; font-size: 1rem; width: 100%; max-width: 350px; }
@@ -277,13 +303,20 @@
 </head>
 <body>
 
-    <!-- Animated Sensual Background -->
+    <!-- Luces Ambientales de Fondo -->
     <div class="bg-wrapper">
+        <div class="ambient-light light-1"></div>
+        <div class="ambient-light light-2"></div>
+        <div class="ambient-light light-3"></div>
+        
+        <!-- Símbolos Flotantes -->
         <div class="floating-symbol sym-1">♀</div>
         <div class="floating-symbol sym-2">♂</div>
         <div class="floating-symbol sym-3">⚥</div>
-        <div class="floating-symbol sym-4">♀</div>
-        <div class="floating-symbol sym-5">♂</div>
+        <div class="floating-symbol sym-4">⚢</div>
+        <div class="floating-symbol sym-5">⚣</div>
+        <div class="floating-symbol sym-6">♂</div>
+        <div class="floating-symbol sym-7">♀</div>
     </div>
 
     <div class="container">
